@@ -119,7 +119,7 @@ public partial class SettingsPage
             try { Clipboard.SetText(source); copied.ForeColor = Theme.Ok; copied.Text = "Copied. Paste it into a new file named BunkerChat.cs on the server."; }
             catch { copied.ForeColor = Theme.Err; copied.Text = "Could not use the clipboard. Use Open on GitHub instead."; }
         };
-        github.Click += (_, _) => { try { Process.Start(new ProcessStartInfo("https://github.com/Russ773/Bunker/blob/main/plugins/BunkerChat.cs") { UseShellExecute = true }); } catch { } };
+        github.Click += (_, _) => { try { Process.Start(new ProcessStartInfo("https://github.com/Russ773/Bunker-Windows/blob/main/plugins/BunkerChat.cs") { UseShellExecute = true }); } catch { } };
 
         void Refresh()
         {

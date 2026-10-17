@@ -9,7 +9,7 @@
 // Usage from the console or RCON:   bunker.say <steamid> <name> <colour> <message>
 //   bunker.say 76561198000000001 "Russ" "#af5" "Hello everyone"
 //
-// Bunker Chat is part of the Bunker project (MIT licence): https://github.com/Russ773/Bunker
+// Bunker Chat is part of the Bunker project (MIT licence): https://github.com/Russ773/Bunker-Windows
 
 using System.Text;
 using System.Text.RegularExpressions;

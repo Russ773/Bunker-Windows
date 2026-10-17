@@ -5,7 +5,7 @@ namespace Bunker;
 /// <summary>Builds the commands that post chat from the Chat panel, as you (name, Steam ID, colour) or as plain "say".</summary>
 public static class ChatSender
 {
-    public const string PluginUrl = "https://raw.githubusercontent.com/Russ773/Bunker/main/plugins/BunkerChat.cs";
+    public const string PluginUrl = "https://raw.githubusercontent.com/Russ773/Bunker-Windows/main/plugins/BunkerChat.cs";
     public const string DefaultColour = "#af5";
 
     public static bool IsSteamId(string? text) => text is { Length: 17 } && text.All(char.IsDigit);

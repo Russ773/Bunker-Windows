@@ -20,7 +20,7 @@ body:
     id: widget_json
     attributes:
       label: Widget file
-      description: The whole widget file (the JSON). Keep it under 64 KB. See the [widget guide](https://github.com/Russ773/Bunker/blob/main/docs/WIDGETS.md) for the format.
+      description: The whole widget file (the JSON). Keep it under 64 KB. See the [widget guide](https://github.com/Russ773/Bunker-Windows/blob/main/docs/WIDGETS.md) for the format.
       render: json
     validations:
       required: true

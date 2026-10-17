@@ -9,7 +9,7 @@ public record UpdateInfo(Version Version, string DownloadUrl, string Notes);
 /// <summary>Checks GitHub Releases for a newer installer and runs it silently.</summary>
 public static class Updater
 {
-    public const string Repo = "Russ773/Bunker";
+    public const string Repo = "Russ773/Bunker-Windows";
 
     [System.Runtime.InteropServices.DllImport("kernel32.dll", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
     private static extern int GetCurrentPackageFullName(ref int length, System.Text.StringBuilder? name);

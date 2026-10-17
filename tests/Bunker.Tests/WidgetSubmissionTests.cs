@@ -55,7 +55,7 @@ public class WidgetSubmissionTests
         var def = WidgetSubmission.Check(Good).Def!;
         var url = WidgetSubmission.IssueUrl(Good, def, "tested on Carbon & Oxide", out var included);
         Assert.True(included);
-        Assert.StartsWith("https://github.com/Russ773/Bunker/issues/new?template=widget-submission.yml", url);
+        Assert.StartsWith("https://github.com/Russ773/Bunker-Windows/issues/new?template=widget-submission.yml", url);
         Assert.Contains("title=Widget%3A%20Resource%20Drop%201.0.0", url);
         Assert.Contains("widget_name=Resource%20Drop", url);
         Assert.Contains("widget_notes=tested%20on%20Carbon%20%26%20Oxide", url);

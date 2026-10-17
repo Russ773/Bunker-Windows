@@ -8,9 +8,9 @@ Watch the console, see who's online and run your server, without ever launching 
 <br>
 
 [![Website](https://img.shields.io/badge/website-getbunker.app-e0592a?style=for-the-badge)](https://getbunker.app)
-[![Latest release](https://img.shields.io/github/v/release/Russ773/Bunker?style=for-the-badge&color=e0592a&label=release&logo=github)](https://github.com/Russ773/Bunker/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/Russ773/Bunker/total?style=for-the-badge&color=4cc38a&label=downloads&logo=download)](https://github.com/Russ773/Bunker/releases)
-[![Build](https://img.shields.io/github/actions/workflow/status/Russ773/Bunker/ci.yml?style=for-the-badge&label=build&logo=githubactions&logoColor=white)](https://github.com/Russ773/Bunker/actions)
+[![Latest release](https://img.shields.io/github/v/release/Russ773/Bunker-Windows?style=for-the-badge&color=e0592a&label=release&logo=github)](https://github.com/Russ773/Bunker-Windows/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/Russ773/Bunker-Windows/total?style=for-the-badge&color=4cc38a&label=downloads&logo=download)](https://github.com/Russ773/Bunker-Windows/releases)
+[![Build](https://img.shields.io/github/actions/workflow/status/Russ773/Bunker-Windows/ci.yml?style=for-the-badge&label=build&logo=githubactions&logoColor=white)](https://github.com/Russ773/Bunker-Windows/actions)
 [![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#-download)
 [![.NET 10](https://img.shields.io/badge/.NET-10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 
@@ -20,13 +20,13 @@ Watch the console, see who's online and run your server, without ever launching 
 [![Dark & light](https://img.shields.io/badge/theme-dark%20%26%20light-1c1f26?style=for-the-badge&logo=sunrise&logoColor=white)](#-screenshots)
 [![Updates ask first](https://img.shields.io/badge/auto--update-asks%20first-4cc38a?style=for-the-badge)](#-safety--privacy)
 
-![Last commit](https://img.shields.io/github/last-commit/Russ773/Bunker?style=flat-square&color=f0b429)
-![Stars](https://img.shields.io/github/stars/Russ773/Bunker?style=flat-square&color=ffd43b)
-![Issues](https://img.shields.io/github/issues/Russ773/Bunker?style=flat-square&color=ef5350)
-![Top language](https://img.shields.io/github/languages/top/Russ773/Bunker?style=flat-square&color=239120)
-![Code size](https://img.shields.io/github/languages/code-size/Russ773/Bunker?style=flat-square&color=0078d6)
-![Repo size](https://img.shields.io/github/repo-size/Russ773/Bunker?style=flat-square&color=8a63d2)
-![License: MIT](https://img.shields.io/github/license/Russ773/Bunker?style=flat-square&color=4cc38a)
+![Last commit](https://img.shields.io/github/last-commit/Russ773/Bunker-Windows?style=flat-square&color=f0b429)
+![Stars](https://img.shields.io/github/stars/Russ773/Bunker-Windows?style=flat-square&color=ffd43b)
+![Issues](https://img.shields.io/github/issues/Russ773/Bunker-Windows?style=flat-square&color=ef5350)
+![Top language](https://img.shields.io/github/languages/top/Russ773/Bunker-Windows?style=flat-square&color=239120)
+![Code size](https://img.shields.io/github/languages/code-size/Russ773/Bunker-Windows?style=flat-square&color=0078d6)
+![Repo size](https://img.shields.io/github/repo-size/Russ773/Bunker-Windows?style=flat-square&color=8a63d2)
+![License: MIT](https://img.shields.io/github/license/Russ773/Bunker-Windows?style=flat-square&color=4cc38a)
 ![PRs welcome](https://img.shields.io/badge/PRs-welcome-4cc38a?style=flat-square)
 ![Not affiliated with Facepunch](https://img.shields.io/badge/not%20affiliated%20with-Facepunch-lightgrey?style=flat-square)
 
@@ -46,11 +46,11 @@ Watch the console, see who's online and run your server, without ever launching 
 
 <div align="center">
 
-[![Download Bunker](https://img.shields.io/badge/⬇%20Download-Bunker%20for%20Windows-e0592a?style=for-the-badge&logoColor=white)](https://github.com/Russ773/Bunker/releases/latest)
+[![Download Bunker](https://img.shields.io/badge/⬇%20Download-Bunker%20for%20Windows-e0592a?style=for-the-badge&logoColor=white)](https://github.com/Russ773/Bunker-Windows/releases/latest)
 
 </div>
 
-1. Grab **`Bunker-Setup-x.y.z.exe`** from the [latest release](https://github.com/Russ773/Bunker/releases/latest), or download the same installer from [getbunker.app](https://getbunker.app).
+1. Grab **`Bunker-Setup-x.y.z.exe`** from the [latest release](https://github.com/Russ773/Bunker-Windows/releases/latest), or download the same installer from [getbunker.app](https://getbunker.app).
 2. Run it. It installs just for you, with no admin prompt.
 3. Start **Bunker** and enter your server's RCON details. That's it.
 
@@ -257,8 +257,8 @@ Want to make one? Read the **[widget guide](docs/WIDGETS.md)** and open a pull r
 You need Windows and the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```bash
-git clone https://github.com/Russ773/Bunker.git
-cd Bunker
+git clone https://github.com/Russ773/Bunker-Windows.git
+cd Bunker-Windows
 
 dotnet run --project src          # run it
 dotnet test tests/Bunker.Tests    # run the tests
@@ -268,7 +268,7 @@ dotnet test tests/Bunker.Tests    # run the tests
 <summary><b>📁 Project layout</b></summary>
 
 ```text
-Bunker/
+Bunker-Windows/
 ├── src/                  The WinForms app (C#, .NET 10)
 │   ├── Core.cs             connection, console log, server monitor
 │   ├── RconClient.cs       WebRCON client
@@ -320,8 +320,9 @@ Pushing a tag such as `v1.0.0` runs the pipeline:
 - [x] Multi-server overview
 - [x] Widget library submissions through the app
 - [x] Microsoft Store listing
+- [x] Android app (in testing, Google Play release planned)
 
-Have an idea? [Open an issue](https://github.com/Russ773/Bunker/issues) or build a [widget](docs/WIDGETS.md).
+Have an idea? [Open an issue](https://github.com/Russ773/Bunker-Windows/issues) or build a [widget](docs/WIDGETS.md).
 
 ---
 

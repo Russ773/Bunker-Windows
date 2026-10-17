@@ -145,7 +145,7 @@ What happens next:
 * A person then reads the widget, command by command. If it is accepted it is added to [`widgets/`](../widgets), and it shows up in
   **Browse library** for every Bunker user straight away. People who already have it see **Update available** when you publish a newer version.
 
-You can also open the form yourself: [Share a widget](https://github.com/Russ773/Bunker/issues/new?template=widget-submission.yml).
+You can also open the form yourself: [Share a widget](https://github.com/Russ773/Bunker-Windows/issues/new?template=widget-submission.yml).
 Or, if you prefer, fork the repository, add your file to [`widgets/`](../widgets) (under 64 KB) and add its file name to
 [`widgets/index.json`](../widgets/index.json), then open a pull request that says what the widget does and which Rust commands it uses.
 
