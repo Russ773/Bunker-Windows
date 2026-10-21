@@ -84,7 +84,7 @@ public class MainForm : Form
                 var first = _core.Monitor.Players.FirstOrDefault();
                 if (first is null) return;
                 using var f = new PlayerCardForm(_core, new PlayerTarget(first.SteamId, first.Name, first.Ping, true)) { StartPosition = FormStartPosition.Manual, Location = new Point(-4000, 100) };
-                f.Shown += async (_, _) => { await Task.Delay(1500); using var bmp = new Bitmap(f.Width, f.Height); f.DrawToBitmap(bmp, new Rectangle(0, 0, f.Width, f.Height)); bmp.Save(cardShot); f.Close(); };
+                f.Shown += async (_, _) => { await Task.Delay(1500); if (Environment.GetEnvironmentVariable("BUNKER_TEST_PLAYERCARD_KEEP") is { Length: > 0 }) { await Task.Delay(20000); f.Close(); return; } using var bmp = new Bitmap(f.Width, f.Height); f.DrawToBitmap(bmp, new Rectangle(0, 0, f.Width, f.Height)); bmp.Save(cardShot); f.Close(); };
                 f.ShowDialog(this);
             };
         if (Environment.GetEnvironmentVariable("BUNKER_TEST_SHARE") is { Length: > 0 } shareShot && Environment.GetEnvironmentVariable("BUNKER_TEST_SHARE_FILE") is { Length: > 0 } shareFile)

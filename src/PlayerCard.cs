@@ -63,6 +63,7 @@ public sealed class PlayerCardForm : Form
         noteBox.Controls.Add(_note);
         noteBox.Controls.Add(new Label { Text = "YOUR NOTE (saved on this PC, shown in the Player database)", Dock = DockStyle.Top, Height = 22, ForeColor = Theme.Muted, Font = new Font("Segoe UI Semibold", 8f) });
         _note.Dock = DockStyle.Fill;
+        DarkScroll.Apply(_note); // the note box scrolls with the same dark bar as every other box
 
         // Bottom: the things you can do.
         var bar = new FlowLayoutPanel { Dock = DockStyle.Bottom, Height = 70, BackColor = Theme.Panel, Padding = new Padding(28, 16, 28, 0), WrapContents = false };
