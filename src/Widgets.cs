@@ -440,6 +440,11 @@ public class PlayersView : Panel
         {
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0) { _grid.ClearSelection(); _grid.Rows[e.RowIndex].Selected = true; }
         };
+        // Double-click a player to open their card: Steam profile, stats and everything you can do to them.
+        _grid.CellDoubleClick += (_, e) =>
+        {
+            if (e.RowIndex >= 0 && _grid.Rows[e.RowIndex].Tag is PlayerInfo p) PlayerCardForm.Open(_core, new PlayerTarget(p.SteamId, p.Name, p.Ping, true), FindForm());
+        };
 
         _core.Monitor.Updated += Refresh;
         Fill();

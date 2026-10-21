@@ -5,6 +5,21 @@ using System.Text.Json.Serialization;
 
 namespace Bunker;
 
+/// <summary>Encrypts a small secret for the current Windows user, the way the RCON passwords are.</summary>
+internal static class Secret
+{
+    public static string? Protect(string? value) => string.IsNullOrEmpty(value)
+        ? null
+        : Convert.ToBase64String(ProtectedData.Protect(Encoding.UTF8.GetBytes(value), null, DataProtectionScope.CurrentUser));
+
+    public static string Unprotect(string? protectedValue)
+    {
+        if (string.IsNullOrEmpty(protectedValue)) return "";
+        try { return Encoding.UTF8.GetString(ProtectedData.Unprotect(Convert.FromBase64String(protectedValue), null, DataProtectionScope.CurrentUser)); }
+        catch { return ""; }
+    }
+}
+
 public class ServerProfile
 {
     public string Id { get; set; } = Guid.NewGuid().ToString("N");
@@ -96,6 +111,17 @@ public class AppSettings
     public bool IsFirstRun { get; private set; }
     /// <summary>Try to reconnect by itself when the connection to the server drops.</summary>
     public bool AutoReconnect { get; set; } = true;
+    /// <summary>Look a player up on Steam (public profile and Rust hours) when their card is opened. Only their Steam ID is sent.</summary>
+    public bool SteamLookups { get; set; } = true;
+    /// <summary>Your free Steam Web API key (optional), encrypted with Windows DPAPI like the RCON passwords. It adds Rust hours, account age and the full ban record to player cards.</summary>
+    public string? SteamApiKeyProtected { get; set; }
+
+    [JsonIgnore]
+    public string SteamApiKey
+    {
+        get => Secret.Unprotect(SteamApiKeyProtected);
+        set => SteamApiKeyProtected = Secret.Protect(value);
+    }
     /// <summary>Which saved servers the Multi Server page shows when there are more than six. Empty means the first six.</summary>
     public List<string> OverviewServerIds { get; set; } = new();
     /// <summary>Show the Bunker icon in the system tray (menu to show, connect or quit).</summary>

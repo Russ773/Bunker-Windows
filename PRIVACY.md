@@ -4,13 +4,14 @@ Bunker runs on your own PC (Windows) or your own phone (Android). It doesn't col
 
 **What stays on your device**
 - Your settings, saved server details and the player database (with your notes) that Bunker builds from your own server. On Windows they are kept in your Windows user profile. On Android they are kept in the app's private storage and are left out of Android backups and device transfers.
-- RCON passwords are encrypted. On Windows that uses Windows DPAPI, so only your Windows account can read them. On Android the key is held in the Android Keystore and never leaves the phone.
+- RCON passwords, and a Steam Web API key if you choose to add one, are encrypted. On Windows that uses Windows DPAPI, so only your Windows account can read them. On Android the key is held in the Android Keystore and never leaves the phone.
 - Exports (the console log, the player list as a CSV file, the chat plugin) are only made when you choose Save or Share, and go where you send them.
 - Removing the app removes its data. The Windows uninstaller asks first; on Android, uninstalling deletes everything.
 
 **Where Bunker connects**
 - **Your own Rust server**, at the address and port you enter, over WebRCON.
 - **GitHub** (github.com and raw.githubusercontent.com). The Windows app uses it to check for updates in the downloadable version and to browse the community widget library when you open it. Both apps use it to fetch the Rust item list and item pictures (from the open bobosneefdev/rust-items-json project) so item search stays current. The item list is checked at most once a day, pictures are fetched as you search, and this can be switched off in the settings. GitHub's privacy policy applies to those requests.
+- **Steam** (steamcommunity.com, and api.steampowered.com if you give the Windows app a Steam Web API key). When you double-click a player to open their card, the Windows app asks Steam for that player's public profile and picture, sending only their Steam ID (and your key, to Steam, if you set one). Nothing is kept except in memory for a few minutes, and it can be switched off in the settings. Steam's privacy policy applies to those requests.
 
 **Android permissions**
 - **Internet**, to reach your server and GitHub as described above.

@@ -93,6 +93,10 @@ public class PlayerDbView : Panel
         {
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0) { _grid.ClearSelection(); _grid.Rows[e.RowIndex].Selected = true; }
         };
+        _grid.CellDoubleClick += (_, e) =>
+        {
+            if (e.RowIndex >= 0 && _grid.Rows[e.RowIndex].Tag is PlayerRecord r) PlayerCardForm.Open(_core, new PlayerTarget(r.SteamId, r.Name, null, _core.Tracker.IsOnline(r.SteamId)), FindForm());
+        };
         _saveNote.Click += (_, _) => SaveNote();
         _note.Leave += (_, _) => SaveNote();
         _copy.Click += (_, _) => { if (_selectedId is not null) Clipboard.SetText(_selectedId); };

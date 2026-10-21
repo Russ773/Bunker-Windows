@@ -206,8 +206,31 @@ public partial class SettingsPage : Panel, ISectionPage
         inner.Controls.Add(Check("Show the Bunker icon in the system tray (right-click it to show, connect or quit)", _core.Settings.ShowTrayIcon, 208, v => TrayChanged(x => _core.Settings.ShowTrayIcon = x, v)));
         inner.Controls.Add(Check("Windows notifications for chat watch-words and a lost connection while Bunker is not in front", _core.Settings.TrayNotifications, 242, v => TrayChanged(x => _core.Settings.TrayNotifications = x, v)));
         inner.Controls.Add(Check("Minimising hides Bunker from the taskbar, leaving only the tray icon", _core.Settings.TrayHideWhenMinimised, 276, v => TrayChanged(x => _core.Settings.TrayHideWhenMinimised = x, v)));
-        inner.Controls.Add(new Label { Text = "When I click the X in the corner of the window", ForeColor = Theme.Muted, Font = Theme.Small, AutoSize = true, Location = new Point(2, 322) });
-        var closeChoices = new FlowLayoutPanel { Location = new Point(0, 342), Size = new Size(520, 30), BackColor = Theme.Panel, WrapContents = false };
+        inner.Controls.Add(Check("Look players up on Steam when I open their card (sends only their Steam ID to steamcommunity.com)", _core.Settings.SteamLookups, 310, v => _core.Settings.SteamLookups = v));
+        inner.Controls.Add(new Label { Text = "Steam Web API key (optional, free): adds Rust hours, account age and the full ban record to player cards", ForeColor = Theme.Muted, Font = Theme.Small, AutoSize = true, Location = new Point(2, 348) });
+        var keyField = new ModernField { Width = 360, Location = new Point(0, 368), Text = _core.Settings.SteamApiKey };
+        keyField.Box.UseSystemPasswordChar = true;
+        keyField.Box.PlaceholderText = "32 letters and numbers";
+        var keyShow = new Label { Text = "Show", ForeColor = Theme.Muted, Width = 46, TextAlign = ContentAlignment.MiddleRight, Cursor = Cursors.Hand, Font = Theme.Small };
+        keyField.AddTrailing(keyShow);
+        keyShow.Click += (_, _) => { keyField.Box.UseSystemPasswordChar = !keyField.Box.UseSystemPasswordChar; keyShow.Text = keyField.Box.UseSystemPasswordChar ? "Show" : "Hide"; };
+        var keyHelp = Link("Get a free key", "https://steamcommunity.com/dev/apikey", 378);
+        keyHelp.Left = keyField.Right + 14;
+        var keyStatus = new Label { Font = Theme.Small, AutoSize = true, Location = new Point(2, 408) };
+        void CheckKey()
+        {
+            var text = keyField.Text.Trim();
+            _core.Settings.SteamApiKey = text;
+            _core.Settings.Save();
+            keyStatus.Text = text.Length == 0 ? "" : SteamLookup.LooksLikeKey(text) ? "Saved. Player cards will use it." : "A Steam key is 32 letters and numbers.";
+            keyStatus.ForeColor = SteamLookup.LooksLikeKey(text) ? Theme.Ok : Theme.Warn;
+        }
+        keyField.Box.TextChanged += (_, _) => CheckKey();
+        inner.Controls.Add(keyField);
+        inner.Controls.Add(keyHelp);
+        inner.Controls.Add(keyStatus);
+        inner.Controls.Add(new Label { Text = "When I click the X in the corner of the window", ForeColor = Theme.Muted, Font = Theme.Small, AutoSize = true, Location = new Point(2, 442) });
+        var closeChoices = new FlowLayoutPanel { Location = new Point(0, 462), Size = new Size(520, 30), BackColor = Theme.Panel, WrapContents = false };
         void AddCloseChoice(string text, string value)
         {
             var radio = new RadioButton { Text = text, AutoSize = true, ForeColor = Theme.Text, Cursor = Cursors.Hand, Margin = new Padding(0, 0, 24, 0), Checked = CloseButtonSetting.Normalise(_core.Settings.CloseButton) == value };
@@ -218,7 +241,7 @@ public partial class SettingsPage : Panel, ISectionPage
         AddCloseChoice("Minimise Bunker", CloseButtonSetting.Minimise);
         AddCloseChoice("Close Bunker", CloseButtonSetting.Close);
         inner.Controls.Add(closeChoices);
-        inner.Controls.Add(new Label { Text = "Theme, maximised and connect settings take effect the next time Bunker starts.", Font = Theme.Small, ForeColor = Theme.Muted, AutoSize = true, Location = new Point(2, 386) });
+        inner.Controls.Add(new Label { Text = "Theme, maximised and connect settings take effect the next time Bunker starts.", Font = Theme.Small, ForeColor = Theme.Muted, AutoSize = true, Location = new Point(2, 506) });
         return Wrap("General", inner);
     }
 

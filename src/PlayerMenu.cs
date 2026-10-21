@@ -104,7 +104,7 @@ public static class PlayerMenu
 
     private static ToolStripMenuItem Heading(string text) => Item(text, null, enabled: false, colour: Theme.Muted);
 
-    private static void Rebuild(ContextMenuStrip menu, Core core, PlayerTarget p, Control owner)
+    internal static void Rebuild(ContextMenuStrip menu, Core core, PlayerTarget p, Control owner)
     {
         menu.Items.Clear();
         var form = owner.FindForm();
@@ -155,7 +155,7 @@ public static class PlayerMenu
         try { Clipboard.SetText(text); } catch { /* the clipboard can be busy */ }
     }
 
-    private static async Task Moderate(Core core, IWin32Window? owner, PlayerTarget p, string verb)
+    internal static async Task Moderate(Core core, IWin32Window? owner, PlayerTarget p, string verb)
     {
         switch (verb)
         {
@@ -184,7 +184,7 @@ public static class PlayerMenu
         }
     }
 
-    private static async Task GiveItem(Core core, IWin32Window? owner, PlayerTarget p)
+    internal static async Task GiveItem(Core core, IWin32Window? owner, PlayerTarget p)
     {
         while (true)
         {

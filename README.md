@@ -66,6 +66,7 @@ Watch the console, see who's online and run your server, without ever launching 
 
 Recent additions, newest ideas first:
 
+* 👤 **Player cards.** Double-click a player on the Dashboard, Players page or Player database to open their card: their Steam profile (picture, account age, bans, and with a free Steam key their hours in Rust), how they are doing on your server (ping, health, IP address, time played and visits), your note about them, and buttons to give an item, kick, ban or mute, with teleport and more under **More**.
 * 📤 **Share your widgets.** Made a widget? **Widgets → Get more widgets → Share a widget** checks it, lists every command it can send, and opens GitHub with the submission filled in. It is checked automatically, read by a person, and then appears in **Browse library** for everyone.
 * 🗂️ **A roomier Widgets page.** **All widgets** in the sidebar opens every widget as a tile, grouped (Favourites, Built in, Community) with a search box. The sidebar no longer has a long list to scroll, and its spacing is tighter so it fits smaller screens.
 * 💾 **Export.** **Save** in the Console header writes what you can see (search and filters applied) to a text file, and **Export CSV** on the Player database saves the players as a spreadsheet that opens in Excel, Google Sheets or LibreOffice. Files go to `Documents\Bunker\Exports` by default, so your other folders stay tidy.
@@ -151,6 +152,10 @@ Bunker is split in two so it is always clear what is part of the app and what is
     <td width="50%"><img src="docs/screenshots/ban-list.png" alt="Ban list table"><br><sub><b>🚫 Ban list</b>: sortable, with expiry dates</sub></td>
     <td width="50%"><img src="docs/screenshots/widget-hub.png" alt="Widgets page"><br><sub><b>🗂️ Widgets</b>: every widget as a tile, with search and favourites</sub></td>
   </tr>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/player-card.png" alt="Player card"><br><sub><b>👤 Player card</b>: double-click a player for Steam details, stats and actions</sub></td>
+    <td width="50%"></td>
+  </tr>
 </table>
 
 ---
@@ -229,7 +234,7 @@ Want to make one? Read the **[widget guide](docs/WIDGETS.md)** and open a pull r
 ## 🔒 Safety & privacy
 
 * 🔐 **RCON passwords are encrypted** with Windows DPAPI, so only your Windows account can read them.
-* 📡 Bunker talks to **your server** and to **GitHub** (to check for updates to Bunker and your widgets, the Rust item list and pictures, and, if you open it, the widget library). The Rust item list and pictures come from [bobosneefdev/rust-items-json](https://github.com/bobosneefdev/rust-items-json) on GitHub, at most once a day, and can be switched off in **Settings → General**. Nothing else, and no analytics.
+* 📡 Bunker talks to **your server** and to **GitHub** (to check for updates to Bunker and your widgets, the Rust item list and pictures, and, if you open it, the widget library). When you open a player card it also asks **Steam** for that player's public profile (only their Steam ID is sent; switch it off in **Settings → General**). The Rust item list and pictures come from [bobosneefdev/rust-items-json](https://github.com/bobosneefdev/rust-items-json) on GitHub, at most once a day, and can be switched off in **Settings → General**. Nothing else, and no analytics.
 * 🙋 **Updates always ask first.** Nothing installs without your OK, and a widget update shows you everything it can do before it replaces the old one.
 * 🧹 **Uninstalling removes everything.** The uninstaller deletes the program and, when you say yes, all the data Bunker saved (servers and their encrypted passwords, player notes, schedules, widgets and item pictures, all kept in `%APPDATA%Bunker`). A silent uninstall removes it all without asking. The Microsoft Store version is removed by Windows in the usual way.
 * 🧪 The widget safety rules have **automated tests** that run on every release.

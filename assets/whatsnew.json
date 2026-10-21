@@ -1,5 +1,12 @@
 [
   {
+    "version": "1.0.17",
+    "items": [
+      "Double-click a player on the Dashboard, Players page or Player database to open their card: Steam profile, bans, time on your server, your note, and buttons to give, kick, ban or mute.",
+      "Add a free Steam key in Settings → General to see each player's hours in Rust, how old their Steam account is and their full ban record."
+    ]
+  },
+  {
     "version": "1.0.16",
     "items": [
       "Share your own widgets: Widgets → Get more widgets → Share a widget checks your widget, lists every command it can send, and opens GitHub with the submission filled in. Accepted widgets appear in Browse library for everyone."
