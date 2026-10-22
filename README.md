@@ -48,6 +48,8 @@ Watch the console, see who's online and run your server, without ever launching 
 
 [![Download Bunker](https://img.shields.io/badge/⬇%20Download-Bunker%20for%20Windows-e0592a?style=for-the-badge&logoColor=white)](https://github.com/Russ773/Bunker-Windows/releases/latest)
 
+<a href="https://get.microsoft.com/installer/download/9pl3409lvh1r?referrer=appbadge"><img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200" alt="Download from the Microsoft Store"></a>
+
 </div>
 
 1. Grab **`Bunker-Setup-x.y.z.exe`** from the [latest release](https://github.com/Russ773/Bunker-Windows/releases/latest), or download the same installer from [getbunker.app](https://getbunker.app).
@@ -348,7 +350,7 @@ Pull requests are welcome (under the [MIT License](LICENSE)), especially **widge
 
 <sub>Website: [getbunker.app](https://getbunker.app) &nbsp;·&nbsp; Released under the [MIT License](LICENSE).</sub>
 
-<sub>Bunker is an independent community tool. **Rust** is a trademark of Facepunch Studios; Bunker is not affiliated with or endorsed by Facepunch.</sub>
+<sub>Bunker is an independent community tool. **Rust** is a trademark of Facepunch Studios; Bunker is not affiliated with or endorsed by Facepunch. Microsoft, Windows and the Microsoft Store are trademarks of the Microsoft group of companies; Bunker is not affiliated with or endorsed by Microsoft.</sub>
 
 <br>
 
