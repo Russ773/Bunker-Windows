@@ -146,7 +146,13 @@ public class MainForm : Form
         {
             var choice = ChooseCloseAction();
             if (choice == CloseChoice.Cancel) { e.Cancel = true; return; }
-            if (choice == CloseChoice.Minimise) { e.Cancel = true; WindowState = FormWindowState.Minimized; return; }
+            if (choice == CloseChoice.Minimise)
+            {
+                e.Cancel = true;
+                // With the tray icon on, the X sends Bunker to the tray (no taskbar button); without it there would be no way back, so it minimises to the taskbar.
+                if (_core.Settings.ShowTrayIcon) Hide(); else WindowState = FormWindowState.Minimized;
+                return;
+            }
         }
         _core.Rcon.Dispose();
     }
@@ -158,7 +164,7 @@ public class MainForm : Form
             case CloseButtonSetting.Minimise: return CloseChoice.Minimise;
             case CloseButtonSetting.Close: return CloseChoice.Close;
         }
-        using var form = new CloseChoiceForm();
+        using var form = new CloseChoiceForm(_core.Settings.ShowTrayIcon);
         form.ShowDialog(this);
         if (form.Choice != CloseChoice.Cancel && form.Remember)
         {

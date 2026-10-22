@@ -28,7 +28,7 @@ public class CloseChoiceForm : Form
     public CloseChoice Choice { get; private set; } = CloseChoice.Cancel;
     public bool Remember => _remember.Checked;
 
-    public CloseChoiceForm()
+    public CloseChoiceForm(bool toTray = false)
     {
         Theme.Apply(this);
         Text = "Close Bunker?";
@@ -45,7 +45,7 @@ public class CloseChoiceForm : Form
         var flow = new FlowLayoutPanel { Dock = DockStyle.Fill, FlowDirection = FlowDirection.TopDown, WrapContents = false, Padding = new Padding(28, 22, 28, 16) };
         flow.Controls.Add(new Label
         {
-            Text = "Minimise keeps Bunker running in the taskbar, so it stays connected and your schedules and chat watch-words keep working.\n\nClosing disconnects from your server and stops those until you open Bunker again.",
+            Text = (toTray ? "Minimise keeps Bunker running in the system tray" : "Minimise keeps Bunker running in the taskbar") + ", so it stays connected and your schedules and chat watch-words keep working.\n\nClosing disconnects from your server and stops those until you open Bunker again.",
             ForeColor = Theme.Text, AutoSize = true, MaximumSize = new Size(444, 0), Margin = new Padding(0, 0, 0, 0),
         });
         flow.Controls.Add(_remember);
