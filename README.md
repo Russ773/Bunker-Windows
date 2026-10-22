@@ -56,11 +56,9 @@ Watch the console, see who's online and run your server, without ever launching 
 2. Run it. It installs just for you, with no admin prompt.
 3. Start **Bunker** and enter your server's RCON details. That's it.
 
-> 🛍️ **Easiest way: [get Bunker from the Microsoft Store](https://apps.microsoft.com/detail/9PL3409LVH1R)** (listed as **Bunker RCON**). It installs with no Windows warnings and the Store keeps it up to date.
->
-> 💡 The installer above isn't code-signed, so Windows SmartScreen may say the publisher is unknown. Choose **More info → Run anyway**.
+> 💡 The installer isn't code-signed, so Windows SmartScreen may say the publisher is unknown. Choose **More info → Run anyway**.
 > If Windows 11's Smart App Control blocks it outright, right-click the downloaded file, open
-> **Properties** and tick **Unblock** before running it.
+> **Properties** and tick **Unblock** before running it. The Microsoft Store version (listed as **Bunker RCON**) has no such warning and updates itself.
 
 ---
 
