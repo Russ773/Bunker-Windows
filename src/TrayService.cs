@@ -73,15 +73,7 @@ public sealed class TrayService : IDisposable
     }
 
     /// <summary>Brings the window back from the tray or the taskbar.</summary>
-    public void Restore()
-    {
-        if (!_form.Visible) _form.Show();
-        if (_form.WindowState == FormWindowState.Minimized) ShowWindow(_form.Handle, 9); // SW_RESTORE: back to how it was, maximised or not
-        _form.Activate();
-    }
-
-    [DllImport("user32.dll")]
-    private static extern bool ShowWindow(IntPtr window, int command);
+    public void Restore() => _form.BringForward();
 
     private async Task ToggleAsync()
     {

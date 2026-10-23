@@ -191,7 +191,11 @@ public partial class SettingsPage : Panel, ISectionPage
             if (toLight == Theme.IsLight) return;
             var restart = MessageBox.Show(FindForm(), "Restart Bunker now to switch theme?\n\nChoose No to switch the next time Bunker starts.",
                 "Theme changed", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (restart == DialogResult.Yes) Application.Restart();
+            if (restart == DialogResult.Yes)
+            {
+                Environment.SetEnvironmentVariable("BUNKER_RESTARTING", "1"); // the new copy waits for this one to exit instead of being turned away
+                Application.Restart();
+            }
         }
         dark.CheckedChanged += (_, _) => { if (dark.Checked) ThemeChanged(false); };
         light.CheckedChanged += (_, _) => { if (light.Checked) ThemeChanged(true); };

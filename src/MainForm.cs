@@ -139,6 +139,17 @@ public class MainForm : Form
         FormClosed += (_, _) => _tray?.Dispose();
     }
 
+    /// <summary>Brings the window back from the tray or the taskbar and to the front.</summary>
+    public void BringForward()
+    {
+        if (!Visible) Show();
+        if (WindowState == FormWindowState.Minimized) ShowWindow(Handle, 9); // SW_RESTORE: back to how it was, maximised or not
+        Activate();
+    }
+
+    [System.Runtime.InteropServices.DllImport("user32.dll")]
+    private static extern bool ShowWindow(IntPtr window, int command);
+
     /// <summary>The X, Alt+F4 or the taskbar's Close ask whether to minimise instead (unless a choice was remembered). Updates, restarts and Windows shutting down are never asked.</summary>
     private void OnFormClosing(object? sender, FormClosingEventArgs e)
     {
