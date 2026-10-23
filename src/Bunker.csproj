@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>Bunker.ico</ApplicationIcon>
-    <Version>1.0.17</Version>
+    <Version>1.0.18</Version>
     <AssemblyName>Bunker</AssemblyName>
     <Product>Bunker</Product>
     <RootNamespace>Bunker</RootNamespace>

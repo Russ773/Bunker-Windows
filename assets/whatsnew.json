@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.18",
+    "items": [
+      "Only one Bunker can run at a time. Starting it again brings the running one to the front, even if it is hidden in the tray.",
+      "With the tray icon on, the X now sends Bunker to the tray instead of leaving a button on the taskbar.",
+      "The note box on a player card has a dark scroll bar."
+    ]
+  },
+  {
     "version": "1.0.17",
     "items": [
       "Double-click a player on the Dashboard, Players page or Player database to open their card: Steam profile, bans, time on your server, your note, and buttons to give, kick, ban or mute.",
